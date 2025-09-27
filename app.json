@@ -1,0 +1,29 @@
+
+{
+    "name": "Repo",
+    "description": " Unacademy Admin bot",
+    "repository": "https://github.com/",
+    "keywords": [
+        "telegram bot",
+        "pyrogram"
+    ],
+    "env": {
+        "API_ID":{
+            "description": "Get your telegram API ID from https://my.telegram.org",
+            "value":"23801870"
+        },
+        "API_HASH":{
+            "description":"Get your telegram API HASH from https://my.telegram.org",
+		    "value":"9645cfafdfc9be9a7a46fb4874992cf6"
+        },
+        "BOT_TOKEN":{
+            "description":"Get from BotFather",
+            "value":"7978735664:AAHhl7M87Z_WdKmYjTHHhXmplLg3mJ9rxmk"
+        },
+        "AUTH_USERS":{
+            "description":"Admin/Owner/Friends ID Seperate by ','  Ex: 44578878,8878899",
+            "value":"6877021488,6005627579"
+        }
+    }
+
+}
