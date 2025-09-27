@@ -6,6 +6,27 @@ import asyncio
 from pyrogram import Client, filters, idle
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message, CallbackQuery
 from config import API_ID, API_HASH, BOT_TOKEN, AUTH_USERS
+import threading
+from flask import Flask
+
+user_state = {}
+app = Flask("render_web")
+def safe_send(send_func, *args, **kwargs):
+    try:
+        return send_func(*args, **kwargs)
+    except Exception as e:
+        print(f"[safe_send error] {e}")
+        return None
+
+
+
+@app.route("/")
+def home():
+    return "✅ Bot is running on Render!"
+
+def run_flask():
+    port = int(os.environ.get("PORT", 10000))
+    app.run(host="0.0.0.0", port=port)
 
 # Initialize bot
 app = Client("SDV_Bot", api_id=API_ID, api_hash=API_HASH, bot_token=BOT_TOKEN)
@@ -537,5 +558,6 @@ async def main():
     await app.stop()
 
 if __name__ == "__main__":
-    loop = asyncio.get_event_loop()
-    loop.run_until_complete(main())
+    threading.Thread(target=run_flask).start()
+    print("🤖 Bot is running... Waiting for messages.")
+    bot.infinity_polling()
