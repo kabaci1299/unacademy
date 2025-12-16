@@ -24,9 +24,9 @@ def safe_send(send_func, *args, **kwargs):
 def home():
     return "✅ Bot is running on Render!"
 
-def run_flask():
-    port = int(os.environ.get("PORT", 10000))
-    app.run(host="0.0.0.0", port=port)
+#def run_flask():
+ #   port = int(os.environ.get("PORT", 10000))
+#    app.run(host="0.0.0.0", port=port)
 
 # Initialize bot
 app = Client("SDV_Bot", api_id=API_ID, api_hash=API_HASH, bot_token=BOT_TOKEN)
