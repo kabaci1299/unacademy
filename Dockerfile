@@ -1,4 +1,4 @@
-FROM python:3.12.0
+FROM python:letest
 RUN pip install --upgrade pip
 COPY requirements.txt requirements.txt
 WORKDIR .
